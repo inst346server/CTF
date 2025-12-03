@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Level 1 - Bug Bounty Training</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Level 1 — Fix the Button</h1>
+    <p>The button is disabled. Enable it using Inspect Element.</p>
+
+    <!-- There is no direct link to the next level.
+         Students must remove the 'disabled' attribute on this button. -->
+
+    <button id="goBtn" disabled>Go to Level 2</button>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById("goBtn").addEventListener("click", () => {
+            setProgress("level1_done");
+            window.location.href = "level2.html";
+        });
+    </script>
+
+    <!-- HINT: remove the 'disabled' attribute in DevTools -->
+</body>
+</html>

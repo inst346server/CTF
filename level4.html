@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Level 4 — Network Tab Challenge</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <script>
+        // Block direct access unless Level 2.5 is done
+        requireProgress("level25_done");
+    </script>
+</head>
+<body>
+    <h1>Level 4 — Follow the Network</h1>
+    <p>
+        This page secretly loads a file in the background. Use the
+        <strong>Network</strong> tab in your browser's DevTools to find it
+        and read its contents.
+    </p>
+
+    <p>
+        When you find the <strong>secret phrase</strong> in that file, type it
+        exactly below:
+    </p>
+
+    <input id="answer" placeholder="Secret phrase">
+    <button onclick="checkAnswer()">Submit</button>
+
+    <p id="result"></p>
+
+    <!-- Hidden request to be discovered in the Network panel -->
+    <img src="final_flag.txt" style="display:none" alt="">
+
+    <script>
+        function checkAnswer() {
+            const input = document.getElementById("answer").value.trim();
+            const result = document.getElementById("result");
+
+            if (input === "NETFLAG_UMD_2025") {
+                setProgress("level4_done");
+                result.innerHTML = "<strong>Correct!</strong> Final flag: <code>UMD{network_tab_for_the_win}</code>";
+            } else {
+                result.textContent = "Nope. Open DevTools → Network → reload the page → click the hidden .txt request and read the response text.";
+            }
+        }
+    </script>
+
+    <p style="margin-top:20px; font-size:0.9em;">
+        Hint: Open DevTools (F12) → Network → reload the page → Open Img -> look for a request to <code>final_flag.txt</code>.
+    </p>
+</body>
+</html>
