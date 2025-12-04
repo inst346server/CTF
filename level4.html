@@ -10,7 +10,7 @@
     </script>
 </head>
 <body>
-    <h1>Level 4 — Follow the Network</h1>
+    <h1 id="header">Level 4 — Follow the Network</h1>
     <p>
         This page secretly loads a file in the background. Use the
         <strong>Network</strong> tab in your browser's DevTools to find it
@@ -38,6 +38,7 @@
             if (input === "NETFLAG_UMD_2025") {
                 setProgress("level4_done");
                 result.innerHTML = "<strong>Correct!</strong> Final flag: <code>UMD{network_tab_for_the_win}</code>";
+                document.getElementById("header").textContent = "Level 5 — Congratulations!";
             } else {
                 result.textContent = "Nope. Open DevTools → Network → reload the page → click the hidden .txt request and read the response text.";
             }
